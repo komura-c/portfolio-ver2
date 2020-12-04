@@ -1,7 +1,7 @@
 <template>
   <ul class="flex items-center center">
     <li v-for="content in contents" :key="content.id">
-      <nuxt-link :to="`/blog/${content.id}`">
+      <nuxt-link :to="`/posts/${content.id}`">
         {{ content.title }}
       </nuxt-link>
     </li>

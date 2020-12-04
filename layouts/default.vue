@@ -12,11 +12,10 @@
               </div>
               <div class="hidden md:block">
                 <div class="ml-10 flex items-baseline">
-                  <li v-for="content in contents" :key="content.id"></li>
                   <nuxt-link to="/"><Button>Top</Button></nuxt-link>
-                  <nuxt-link to="/blog"><Button>Blog</Button></nuxt-link>
                   <nuxt-link to="/about"><Button>About</Button></nuxt-link>
                   <nuxt-link to="/works"><Button>Works</Button></nuxt-link>
+                  <nuxt-link to="/posts"><Button>Posts</Button></nuxt-link>
                 </div>
               </div>
             </div>
@@ -64,19 +63,19 @@
               >Top</a
             >
             <a
-              href="/works"
-              class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700"
-              >Works</a
-            >
-            <a
               href="/about"
               class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700"
               >About</a
             >
             <a
-              href="/blog"
+              href="/works"
               class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700"
-              >Blog</a
+              >Works</a
+            >
+            <a
+              href="/posts"
+              class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700"
+              >Posts</a
             >
           </div>
         </div>
