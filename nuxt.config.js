@@ -1,3 +1,7 @@
+import axios from 'axios'
+require('dotenv').config()
+const { API_URL, API_KEY } = process.env
+
 export default {
   // Target (https://go.nuxtjs.dev/config-target)
   target: 'static',
@@ -28,11 +32,40 @@ export default {
     '@nuxt/typescript-build',
     // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss',
+    '@nuxtjs/dotenv',
   ],
+
+  // tailwindcss: {},
+  // dotenv: {},
 
   // Modules (https://go.nuxtjs.dev/config-modules)
   modules: [],
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {},
+
+  generate: {
+    async routes() {
+      const pages = await axios
+        .get(`${API_URL}?limit=100`, {
+          headers: { 'X-API-KEY': API_KEY },
+        })
+        .then((res) =>
+          res.data.contents.map((content) => ({
+            route: `/blog/${content.id}`,
+            payload: content,
+          }))
+        )
+      return pages
+    },
+  },
+
+  privateRuntimeConfig: {
+    apiURL: API_URL,
+    apiKey: API_KEY,
+  },
+  publicRuntimeConfig: {
+    apiURL: process.env.NODE_ENV !== 'production' ? API_URL : undefined,
+    apiKey: process.env.NODE_ENV !== 'production' ? API_KEY : undefined,
+  },
 }
