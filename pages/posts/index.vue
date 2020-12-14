@@ -1,5 +1,5 @@
 <template>
-  <ul class="flex items-center center">
+  <ul>
     <li v-for="content in contents" :key="content.id">
       <nuxt-link :to="`/posts/${content.id}`">
         {{ content.title }}
