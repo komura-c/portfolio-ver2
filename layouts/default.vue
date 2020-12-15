@@ -5,7 +5,7 @@
 <script>
 export default {
   head: {
-    title: 'komura-c.dev',
+    title: 'komura-c.net',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -18,15 +18,3 @@ export default {
   },
 }
 </script>
-
-<style>
-html {
-  font-family: 'Source Sans', sans-serif;
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-</style>

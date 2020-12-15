@@ -1,19 +1,19 @@
 <template>
   <div>
-    <AboutSection />
-    <WorksSection />
+    <ProfileSection />
+    <ProductsSection />
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-import AboutSection from '~/components/AboutSection.vue'
-import WorksSection from '~/components/WorksSection.vue'
+import ProfileSection from '~/components/ProfileSection.vue'
+import ProductsSection from '~/components/ProductsSection.vue'
 
 export default Vue.extend({
   components: {
-    AboutSection,
-    WorksSection,
+    ProfileSection,
+    ProductsSection,
   },
 })
 </script>
