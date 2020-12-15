@@ -6,10 +6,7 @@
 }
 
 @mixin dark {
-  --theme-base: #333;
-  --theme-font: #fff;
-  --theme-accent: #339af0;
-  --theme-bg: #333;
+  @include light();
 }
 
 :root {
