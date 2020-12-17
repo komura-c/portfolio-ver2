@@ -1,30 +1,4 @@
-@mixin light {
-  --theme-base: #fff;
-  --theme-font: #333;
-  --theme-accent: #339af0;
-  --theme-bg: #f4f4f7;
-}
-
-@mixin dark {
-  @include light();
-}
-
-:root {
-  @media (prefers-color-scheme: light) {
-    @include light();
-  }
-  @media (prefers-color-scheme: dark) {
-    @include dark();
-  }
-}
-
-.light-mode {
-  @include light();
-}
-
-.dark-mode {
-  @include dark();
-}
+@import 'mixins';
 
 *,
 *::before,
@@ -40,6 +14,42 @@ html {
 body {
   background-color: var(--theme-bg);
   color: var(--theme-font);
+}
+
+a {
+  text-decoration: none;
+}
+
+.container {
+  max-width: 1000px;
+  padding: 20px 8px;
+  margin: 60px auto;
+}
+
+.heading {
+  padding: 24px;
+  text-align: center;
+  &__title {
+    position: relative;
+    font-size: 32px;
+    letter-spacing: 1.5px;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    &::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      bottom: 0px;
+      width: 60px;
+      height: 5px;
+      transform: translateX(-50%);
+      background-color: #fbbf5d;
+      border-radius: 2px;
+    }
+  }
+  &__text {
+    letter-spacing: 1.5px;
+  }
 }
 
 .fade {
