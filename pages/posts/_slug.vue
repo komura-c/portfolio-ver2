@@ -7,15 +7,16 @@
   </main>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from 'vue'
 import axios from 'axios'
 
-export default {
+export default Vue.extend({
   async asyncData({ params, $config }) {
     const { data } = await axios.get(`${$config.apiURL}/${params.slug}`, {
       headers: { 'X-API-KEY': $config.apiKey },
     })
     return data
   },
-}
+})
 </script>
