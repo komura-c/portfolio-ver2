@@ -41,10 +41,10 @@
               <dd class="product-card__dd">Portfolio-Blog</dd>
               <dt class="product-card__dt">説明：</dt>
               <dd class="product-card__dd">
-                このサイトです。Nuxt.jsとmicroCMSを使ってみたかったので作りました。
+                このサイトです。Nuxt.jsを使ってみるために作りました。
               </dd>
               <dt class="product-card__dt">技術：</dt>
-              <dd class="product-card__dd">Nuxt.js, Netlify, microCMS</dd>
+              <dd class="product-card__dd">Nuxt.js, Netlify</dd>
             </dl>
           </div>
         </div>

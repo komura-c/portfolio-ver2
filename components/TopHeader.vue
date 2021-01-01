@@ -2,17 +2,18 @@
   <header class="header">
     <div class="nav-bar fade">
       <ul class="nav-list">
-        <li class="nav-list__item">
-          <a href="#top" class="nav-list__link">Top</a>
-        </li>
-        <li class="nav-list__item">
-          <a href="#products" class="nav-list__link">Products</a>
-        </li>
-        <li class="nav-list__item">
-          <a href="#skills" class="nav-list__link">Skills</a>
-        </li>
-        <li class="nav-list__item">
-          <a href="/posts" class="nav-list__link">Posts</a>
+        <li
+          v-for="navItem in navList"
+          :key="navItem.anchor"
+          class="nav-list__item"
+        >
+          <nuxt-link
+            v-scroll-to="'#' + navItem.anchor"
+            to
+            class="nav-list__link"
+          >
+            {{ navItem.name }}
+          </nuxt-link>
         </li>
       </ul>
     </div>
@@ -22,7 +23,39 @@
 <script lang="ts">
 import Vue from 'vue'
 
-export default Vue.extend({})
+export type NavList = {
+  name: string
+  anchor: string
+}[]
+
+export default Vue.extend({
+  data() {
+    return {
+      navList: [
+        {
+          name: 'Top',
+          anchor: 'top',
+        },
+        {
+          name: 'Products',
+          anchor: 'products',
+        },
+        {
+          name: 'Skills',
+          anchor: 'skills',
+        },
+        {
+          name: 'Musics',
+          anchor: 'musics',
+        },
+        {
+          name: 'Contact',
+          anchor: 'contact',
+        },
+      ] as NavList,
+    }
+  },
+})
 </script>
 
 <style lang="scss">

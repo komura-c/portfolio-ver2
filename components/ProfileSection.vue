@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-top">
+  <div id="top" class="bg-top">
     <div class="profile-card fade">
       <div class="profile-card__img-wrapper">
         <img
