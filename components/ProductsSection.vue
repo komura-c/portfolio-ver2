@@ -5,91 +5,32 @@
         <h2 class="heading__title">Products</h2>
       </div>
       <div class="products">
-        <div class="product-card">
-          <img src="~assets/images/musil.png" class="product-card__img" />
+        <div
+          v-for="product in productList"
+          :key="product.name"
+          class="product-card"
+        >
+          <img :src="product.imgSrc" class="product-card__img" alt="" />
           <div class="product-card__description">
             <dl class="product-card__dl">
               <dt class="product-card__dt">名前：</dt>
-              <dd class="product-card__dd">MusiL</dd>
+              <dd class="product-card__dd">{{ product.name }}</dd>
               <dt class="product-card__dt">説明：</dt>
               <dd class="product-card__dd">
-                DTMや作曲をしている人が気軽に記事を投稿できるサービスです。もっとDTMを楽しめる人が増えたら良いなという考えで作成しました。
+                {{ product.description }}
               </dd>
               <dt class="product-card__dt">技術：</dt>
               <dd class="product-card__dd">
-                Angular.js, Firebase Cloud Functions + Hosting, Algolia, Froala
-                Editor
+                {{ product.tech }}
               </dd>
             </dl>
-            <div class="product-card__buttons">
-              <a href="https://musil.place/" class="product-card__link">
+            <div v-if="product.serviceURL" class="product-card__buttons">
+              <a :href="product.serviceURL" class="product-card__link">
                 サイトを見る<img
                   src="~assets/images/mdi-open-in-new.svg"
                   alt="mdi-open-in-new"
               /></a>
             </div>
-          </div>
-        </div>
-        <div class="product-card">
-          <img
-            src="~assets/images/portfolio-blog.png"
-            class="product-card__img"
-          />
-          <div class="product-card__description">
-            <dl class="product-card__dl">
-              <dt class="product-card__dt">名前：</dt>
-              <dd class="product-card__dd">Portfolio-Blog</dd>
-              <dt class="product-card__dt">説明：</dt>
-              <dd class="product-card__dd">
-                このサイトです。Nuxt.jsを使ってみるために作りました。
-              </dd>
-              <dt class="product-card__dt">技術：</dt>
-              <dd class="product-card__dd">Nuxt.js, Netlify</dd>
-            </dl>
-          </div>
-        </div>
-        <div class="product-card">
-          <img src="~assets/images/music-waves.jpg" class="product-card__img" />
-          <div class="product-card__description">
-            <dl class="product-card__dl">
-              <dt class="product-card__dt">名前：</dt>
-              <dd class="product-card__dd">MusicWavesVisualizer</dd>
-              <dt class="product-card__dt">説明：</dt>
-              <dd class="product-card__dd">
-                WebAudioAPIを使って画像と音楽を読み込んで波形動画を生成するサイトです。音楽動画が簡単に作れたら便利という考えで作成しました。
-              </dd>
-              <dt class="product-card__dt">技術：</dt>
-              <dd class="product-card__dd">
-                HTML5, CSS3, JavaScript, Materialize, Vercel
-              </dd>
-            </dl>
-            <div class="product-card__buttons">
-              <a
-                href="https://music-waves-visualizer.vercel.app/"
-                class="product-card__link"
-              >
-                サイトを見る<img
-                  src="~assets/images/mdi-open-in-new.svg"
-                  alt="mdi-open-in-new"
-              /></a>
-            </div>
-          </div>
-        </div>
-        <div class="product-card">
-          <img src="~assets/images/arskw.png" class="product-card__img" />
-          <div class="product-card__description">
-            <dl class="product-card__dl">
-              <dt class="product-card__dt">名前：</dt>
-              <dd class="product-card__dd">arskw</dd>
-              <dt class="product-card__dt">説明：</dt>
-              <dd class="product-card__dd">
-                Amazonレビューをスクレイピングしてワードクラウドに可視化するPythonプログラムです。
-              </dd>
-              <dt class="product-card__dt">技術：</dt>
-              <dd class="product-card__dd">
-                Python, Selenium, BeautifulSoup4, XlsxWriter, WordCloud, etc.
-              </dd>
-            </dl>
           </div>
         </div>
       </div>
@@ -100,18 +41,62 @@
 <script lang="ts">
 import Vue from 'vue'
 
-export default Vue.extend({})
+type ProductList = {
+  imgSrc: string
+  name: string
+  description: string
+  tech: string
+  serviceURL?: string
+}[]
+
+export default Vue.extend({
+  data(): { productList: ProductList } {
+    return {
+      productList: [
+        {
+          imgSrc: require('@/assets/images/musil.png'),
+          name: 'MusiL',
+          description:
+            'DTMや作曲をしている人が気軽に記事を投稿できるサービスです。もっとDTMを楽しめる人が増えたら良いなという考えで作成しました。',
+          tech:
+            'Angular.js, Firebase Cloud Functions + Hosting, Algolia, Froala Editor',
+          serviceURL: 'https://musil.place/',
+        },
+        {
+          imgSrc: require('@/assets/images/portfolio.png'),
+          name: 'komura-c.net',
+          description: 'このサイトです。Nuxt.jsを使ってみるために作りました。',
+          tech: 'Nuxt.js, Netlify',
+        },
+        {
+          imgSrc: require('@/assets/images/music-waves.jpg'),
+          name: 'MusicWavesVisualizer',
+          description:
+            'WebAudioAPIを使って画像と音楽を読み込んで波形動画を生成するサイトです。音楽動画が簡単に作れたら便利という考えで作成しました。',
+          tech: 'HTML5, CSS3, JavaScript, Materialize, Vercel',
+          serviceURL: 'https://music-waves-visualizer.vercel.app/',
+        },
+        {
+          imgSrc: require('@/assets/images/arskw.png'),
+          name: 'arskw',
+          description:
+            'Amazonレビューをスクレイピングしてワードクラウドに可視化するPythonプログラムです。',
+          tech: 'Python, Selenium, BeautifulSoup4, XlsxWriter, WordCloud, etc.',
+        },
+      ],
+    }
+  },
+})
 </script>
 
 <style lang="scss" scoped>
-@import '~/assets/scss/_mixins.scss';
+@import '@/assets/scss/_mixins.scss';
 
 .products {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  gap: 24px;
 }
 
 .product-card {
@@ -119,6 +104,7 @@ export default Vue.extend({})
   box-shadow: 0 18px 45px 0 rgba(0, 0, 0, 0.13);
   border-radius: 4px;
   width: 48%;
+  margin-bottom: 24px;
   @include tab {
     width: 100%;
   }
