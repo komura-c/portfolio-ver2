@@ -23,13 +23,13 @@
 <script lang="ts">
 import Vue from 'vue'
 
-export type NavList = {
+type NavList = {
   name: string
   anchor: string
 }[]
 
 export default Vue.extend({
-  data() {
+  data(): { navList: NavList } {
     return {
       navList: [
         {
@@ -41,6 +41,10 @@ export default Vue.extend({
           anchor: 'products',
         },
         {
+          name: 'Posts',
+          anchor: 'posts',
+        },
+        {
           name: 'Skills',
           anchor: 'skills',
         },
@@ -48,11 +52,7 @@ export default Vue.extend({
           name: 'Musics',
           anchor: 'musics',
         },
-        {
-          name: 'Contact',
-          anchor: 'contact',
-        },
-      ] as NavList,
+      ],
     }
   },
 })
