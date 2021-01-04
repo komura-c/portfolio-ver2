@@ -1,9 +1,9 @@
 <template>
   <div class="scroll-guide">
     <p class="scroll-guide__text">Scroll</p>
-    <a href="" class="scroll-guide__anchor">
+    <nuxt-link v-scroll-to="'#products'" to class="scroll-guide__anchor">
       <span class="scroll-guide__icon"></span
-    ></a>
+    ></nuxt-link>
   </div>
 </template>
 
