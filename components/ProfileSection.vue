@@ -19,18 +19,13 @@
         </div>
         <div class="social-buttons">
           <a
-            href="https://twitter.com/komura_c"
+            v-for="socialButton in socialButtons"
+            :key="socialButton.name"
+            :href="socialButton.URL"
             target="_blank"
             rel="noopener noreferrer"
             class="social-buttons__link"
-            ><img src="~assets/images/twitter-icon.svg" alt="twitter"
-          /></a>
-          <a
-            href="https://github.com/komura-c"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="social-buttons__link"
-            ><img src="~assets/images/github-icon.svg" alt="github"
+            ><img :src="socialButton.imgSrc" :alt="socialButton.name"
           /></a>
         </div>
       </div>
@@ -41,7 +36,30 @@
 <script lang="ts">
 import Vue from 'vue'
 
-export default Vue.extend({})
+type SocialButtons = {
+  name: string
+  URL: string
+  imgSrc: string
+}[]
+
+export default Vue.extend({
+  data(): { socialButtons: SocialButtons } {
+    return {
+      socialButtons: [
+        {
+          name: 'twitter',
+          URL: 'https://twitter.com/komura_c',
+          imgSrc: require('@/assets/images/twitter-icon.svg'),
+        },
+        {
+          name: 'github',
+          URL: 'https://github.com/komura_c',
+          imgSrc: require('@/assets/images/github-icon.svg'),
+        },
+      ],
+    }
+  },
+})
 </script>
 
 <style lang="scss" scoped>
@@ -116,10 +134,10 @@ export default Vue.extend({})
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 16px;
   &__link {
     width: 40px;
     height: 40px;
+    margin-right: 12px;
     border-radius: 50%;
     transition-duration: 0.3s;
     &:hover {
