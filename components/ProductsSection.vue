@@ -5,9 +5,12 @@
         <h2 class="heading__title">Products</h2>
       </div>
       <div class="products">
-        <div
+        <a
           v-for="product in productList"
           :key="product.name"
+          :href="product.URL"
+          target="_blank"
+          rel="noopener noreferrer"
           class="product-card"
         >
           <img :src="product.imgSrc" class="product-card__img" alt="" />
@@ -24,15 +27,8 @@
                 {{ product.tech }}
               </dd>
             </dl>
-            <div v-if="product.serviceURL" class="product-card__buttons">
-              <a :href="product.serviceURL" class="product-card__link">
-                サイトを見る<img
-                  src="~assets/images/mdi-open-in-new.svg"
-                  alt="mdi-open-in-new"
-              /></a>
-            </div>
           </div>
-        </div>
+        </a>
       </div>
     </div>
   </div>
@@ -46,7 +42,7 @@ type ProductList = {
   name: string
   description: string
   tech: string
-  serviceURL?: string
+  URL: string
 }[]
 
 export default Vue.extend({
@@ -60,13 +56,14 @@ export default Vue.extend({
             'DTMや作曲をしている人が気軽に記事を投稿できるサービスです。もっとDTMを楽しめる人が増えたら良いなという考えで作成しました。',
           tech:
             'Angular.js, Firebase Cloud Functions + Hosting, Algolia, Froala Editor',
-          serviceURL: 'https://musil.place/',
+          URL: 'https://musil.place/',
         },
         {
           imgSrc: require('@/assets/images/portfolio.png'),
-          name: 'komura-c.net',
+          name: 'komura-c.github.io',
           description: 'このサイトです。Nuxt.jsを使ってみるために作りました。',
           tech: 'Nuxt.js, Netlify',
+          URL: 'https://github.com/komura-c/komura-c.github.io',
         },
         {
           imgSrc: require('@/assets/images/music-waves.jpg'),
@@ -74,7 +71,7 @@ export default Vue.extend({
           description:
             'WebAudioAPIを使って画像と音楽を読み込んで波形動画を生成するサイトです。音楽動画が簡単に作れたら便利という考えで作成しました。',
           tech: 'HTML5, CSS3, JavaScript, Materialize, Vercel',
-          serviceURL: 'https://music-waves-visualizer.vercel.app/',
+          URL: 'https://music-waves-visualizer.vercel.app/',
         },
         {
           imgSrc: require('@/assets/images/arskw.png'),
@@ -82,6 +79,7 @@ export default Vue.extend({
           description:
             'Amazonレビューをスクレイピングしてワードクラウドに可視化するPythonプログラムです。',
           tech: 'Python, Selenium, BeautifulSoup4, XlsxWriter, WordCloud, etc.',
+          URL: 'https://github.com/komura-c/arskw',
         },
       ],
     }
@@ -100,13 +98,18 @@ export default Vue.extend({
 }
 
 .product-card {
+  color: #333;
   background-color: #fff;
   box-shadow: 0 18px 45px 0 rgba(0, 0, 0, 0.13);
   border-radius: 4px;
   width: 48%;
   margin-bottom: 24px;
+  transition: 0.3s;
   @include tab {
     width: 100%;
+  }
+  &:hover {
+    box-shadow: 0 18px 45px 0 rgba(0, 0, 0, 0.31);
   }
   &__img {
     width: 100%;
@@ -129,15 +132,16 @@ export default Vue.extend({
   &__dd {
     margin-left: 70px;
   }
-  &__buttons {
-    text-align: right;
-  }
-  &__link {
-    font-size: 14px;
+  &__button {
+    display: block;
+    width: calc(100% + 32px);
+    height: 40px;
+    text-align: center;
+    margin: 0 -16px -16px;
     color: #fff;
     background-color: #f4511e;
     padding: 8px;
-    border-radius: 4px;
+    border-radius: 0 0 4px 4px;
     transition-duration: 0.3s;
     img {
       color: #fff;
