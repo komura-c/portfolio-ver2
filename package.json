@@ -7,6 +7,8 @@
     "build": "nuxt-ts build",
     "start": "nuxt-ts start",
     "generate": "nuxt-ts generate",
+    "deploy": "push-dir --dir=dist --branch=gh-pages --cleanup",
+    "prod": "npm run generate && npm run deploy",
     "lint:js": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "lint": "npm run lint:js",
     "test": "jest"
@@ -45,6 +47,7 @@
     "lint-staged": "^10.4.0",
     "node-sass": "^5.0.0",
     "prettier": "^2.1.2",
+    "push-dir": "^0.4.1",
     "sass-loader": "^10.1.0",
     "ts-jest": "^26.4.1",
     "vue-jest": "^3.0.4"
