@@ -12,7 +12,7 @@ export default {
       {
         hid: 'description',
         name: 'description',
-        content: 'komura-cのポートフォリオ・ブログサイトです。',
+        content: 'komura-cのポートフォリオサイトです。',
       },
     ],
   },

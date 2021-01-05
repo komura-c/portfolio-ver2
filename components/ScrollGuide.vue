@@ -1,9 +1,9 @@
 <template>
   <div class="scroll-guide">
     <p class="scroll-guide__text">Scroll</p>
-    <a href="" class="scroll-guide__anchor">
+    <nuxt-link v-scroll-to="'#products'" to class="scroll-guide__anchor">
       <span class="scroll-guide__icon"></span
-    ></a>
+    ></nuxt-link>
   </div>
 </template>
 
@@ -21,7 +21,7 @@ export default Vue.extend({})
   align-items: center;
   &__text {
     font-size: 20px;
-    letter-spacing: 2px;
+    letter-spacing: 1.2px;
   }
   &__anchor {
     position: relative;

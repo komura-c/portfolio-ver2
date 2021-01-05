@@ -1,5 +1,5 @@
 {
-  "name": "portfolio-blog",
+  "name": "portfolio",
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -7,6 +7,8 @@
     "build": "nuxt-ts build",
     "start": "nuxt-ts start",
     "generate": "nuxt-ts generate",
+    "deploy": "push-dir --dir=dist --branch=gh-pages --cleanup",
+    "prod": "npm run generate && npm run deploy",
     "lint:js": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "lint": "npm run lint:js",
     "test": "jest"
@@ -21,14 +23,13 @@
   },
   "dependencies": {
     "@nuxt/typescript-runtime": "^2.0.0",
-    "axios": "^0.21.0",
     "core-js": "^3.6.5",
-    "nuxt": "^2.14.6"
+    "nuxt": "^2.14.6",
+    "vue-scrollto": "^2.20.0"
   },
   "devDependencies": {
     "@nuxt/types": "^2.14.6",
     "@nuxt/typescript-build": "^2.0.3",
-    "@nuxtjs/dotenv": "^1.4.1",
     "@nuxtjs/eslint-config": "^3.1.0",
     "@nuxtjs/eslint-config-typescript": "^3.0.0",
     "@nuxtjs/eslint-module": "^2.0.0",
@@ -46,6 +47,7 @@
     "lint-staged": "^10.4.0",
     "node-sass": "^5.0.0",
     "prettier": "^2.1.2",
+    "push-dir": "^0.4.1",
     "sass-loader": "^10.1.0",
     "ts-jest": "^26.4.1",
     "vue-jest": "^3.0.4"

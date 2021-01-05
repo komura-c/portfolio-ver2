@@ -1,4 +1,4 @@
-# portfolio-blog
+# komura-c.github.io
 
 ## Build Setup
 

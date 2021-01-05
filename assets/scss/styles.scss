@@ -22,7 +22,7 @@ a {
 
 .container {
   max-width: 1000px;
-  padding: 20px 8px;
+  padding: 20px 16px;
   margin: 60px auto;
 }
 
@@ -32,7 +32,7 @@ a {
   &__title {
     position: relative;
     font-size: 32px;
-    letter-spacing: 1.5px;
+    letter-spacing: 1.2px;
     padding-bottom: 20px;
     margin-bottom: 20px;
     &::after {
@@ -48,12 +48,12 @@ a {
     }
   }
   &__text {
-    letter-spacing: 1.5px;
+    letter-spacing: 1.2px;
   }
 }
 
 .fade {
-  animation: fadeIn 0.3s ease-in;
+  animation: fadeIn 0.6s ease-in;
 }
 
 @keyframes fadeIn {

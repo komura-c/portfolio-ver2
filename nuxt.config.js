@@ -1,7 +1,3 @@
-import axios from 'axios'
-require('dotenv').config()
-const { API_URL, API_KEY } = process.env
-
 export default {
   // Target (https://go.nuxtjs.dev/config-target)
   target: 'static',
@@ -20,7 +16,7 @@ export default {
   css: ['@/assets/scss/styles.scss'],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
-  plugins: [],
+  plugins: ['~/plugins/vue-scrollto'],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
   components: true,
@@ -29,7 +25,6 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/typescript
     '@nuxt/typescript-build',
-    '@nuxtjs/dotenv',
     '@nuxtjs/svg',
   ],
 
@@ -41,28 +36,8 @@ export default {
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {},
 
-  generate: {
-    async routes() {
-      const pages = await axios
-        .get(`${API_URL}?limit=100`, {
-          headers: { 'X-API-KEY': API_KEY },
-        })
-        .then((res) =>
-          res.data.contents.map((content) => ({
-            route: `/posts/${content.id}`,
-            payload: content,
-          }))
-        )
-      return pages
-    },
-  },
+  generate: {},
 
-  privateRuntimeConfig: {
-    apiURL: API_URL,
-    apiKey: API_KEY,
-  },
-  publicRuntimeConfig: {
-    apiURL: process.env.NODE_ENV !== 'production' ? API_URL : undefined,
-    apiKey: process.env.NODE_ENV !== 'production' ? API_KEY : undefined,
-  },
+  privateRuntimeConfig: {},
+  publicRuntimeConfig: {},
 }

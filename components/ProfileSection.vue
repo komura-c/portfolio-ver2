@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-top">
+  <div id="top" class="bg-top">
     <div class="profile-card fade">
       <div class="profile-card__img-wrapper">
         <img
@@ -13,24 +13,31 @@
         <h1 class="profile-card__name">komura (Yuki Ishii)</h1>
         <div class="profile-card__description">
           <p>
-            Webと音楽が好きです。最近はTypeScriptに夢中。Angular,
-            Firebaseでの開発が得意です。
+            Webと音楽が好きです。最近の興味はTypeScript。Angular,
+            Firebaseでの開発が得意。
+            <a
+              href="https://twitter.com/messages/compose?recipient_id=841935463174807558"
+              target="_blank"
+              rel="noopener noreferrer"
+              >TwitterDM</a
+            >、
+            <a
+              href="mailto:komura_334@yahoo.co.jp"
+              target="_blank"
+              rel="noopener noreferrer"
+              >メール</a
+            >よりお気軽にご連絡ください。
           </p>
         </div>
         <div class="social-buttons">
           <a
-            href="https://twitter.com/komura_c"
+            v-for="socialButton in socialButtons"
+            :key="socialButton.name"
+            :href="socialButton.URL"
             target="_blank"
             rel="noopener noreferrer"
             class="social-buttons__link"
-            ><img src="~assets/images/twitter-icon.svg" alt="twitter"
-          /></a>
-          <a
-            href="https://github.com/komura-c"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="social-buttons__link"
-            ><img src="~assets/images/github-icon.svg" alt="github"
+            ><img :src="socialButton.imgSrc" :alt="socialButton.name"
           /></a>
         </div>
       </div>
@@ -41,7 +48,50 @@
 <script lang="ts">
 import Vue from 'vue'
 
-export default Vue.extend({})
+type SocialButtons = {
+  name: string
+  URL: string
+  imgSrc: string
+}[]
+
+export default Vue.extend({
+  data(): { socialButtons: SocialButtons } {
+    return {
+      socialButtons: [
+        {
+          name: 'twitter',
+          URL: 'https://twitter.com/komura_c',
+          imgSrc: require('@/assets/images/twitter-icon.svg'),
+        },
+        {
+          name: 'github',
+          URL: 'https://github.com/komura-c',
+          imgSrc: require('@/assets/images/github-icon.svg'),
+        },
+        {
+          name: 'qiita',
+          URL: 'https://qiita.com/komura_c',
+          imgSrc: require('@/assets/images/qiita-icon.png'),
+        },
+        {
+          name: 'note',
+          URL: 'https://note.com/komura_c',
+          imgSrc: require('@/assets/images/note-icon.svg'),
+        },
+        {
+          name: 'resume',
+          URL: 'https://www.resume.id/komura_c',
+          imgSrc: require('@/assets/images/resume-icon.png'),
+        },
+        {
+          name: 'soundcloud',
+          URL: 'https://soundcloud.com/komura_c',
+          imgSrc: require('@/assets/images/soundcloud-icon.png'),
+        },
+      ],
+    }
+  },
+})
 </script>
 
 <style lang="scss" scoped>
@@ -71,7 +121,7 @@ export default Vue.extend({})
   display: flex;
   flex-direction: column;
   align-items: center;
-  box-shadow: 0 18px 45px 0 rgba(0, 0, 0, 0.13);
+  box-shadow: 0 8px 40px 0 rgba(0, 0, 0, 0.08);
   border-radius: 4px;
   &__img {
     width: 140px;
@@ -92,7 +142,7 @@ export default Vue.extend({})
       rgb(247, 100, 91),
       rgb(128, 94, 212)
     );
-    box-shadow: 0 8px 40px 0 rgba(0, 0, 0, 0.21);
+    box-shadow: 0 8px 40px 0 rgba(0, 0, 0, 0.08);
   }
   &__info {
     padding: 16px;
@@ -107,8 +157,17 @@ export default Vue.extend({})
     background-color: #339af0;
     color: #fff;
     border-radius: 10px;
-    font-weight: bold;
+    letter-spacing: 1.2px;
     margin-bottom: 16px;
+    a {
+      color: #fff;
+      font-weight: bold;
+      text-decoration: underline;
+      transition-duration: 0.3s;
+      &:hover {
+        opacity: 0.5;
+      }
+    }
   }
 }
 
@@ -116,11 +175,10 @@ export default Vue.extend({})
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 16px;
   &__link {
     width: 40px;
     height: 40px;
-    border-radius: 50%;
+    margin-right: 12px;
     transition-duration: 0.3s;
     &:hover {
       opacity: 0.5;
@@ -128,6 +186,7 @@ export default Vue.extend({})
     img {
       width: 100%;
       height: 100%;
+      border-radius: 50%;
     }
   }
 }
