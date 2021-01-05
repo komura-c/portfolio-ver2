@@ -21,7 +21,7 @@ export default Vue.extend({})
   align-items: center;
   &__text {
     font-size: 20px;
-    letter-spacing: 2px;
+    letter-spacing: 1.2px;
   }
   &__anchor {
     position: relative;

@@ -100,7 +100,7 @@ export default Vue.extend({
 .product-card {
   color: #333;
   background-color: #fff;
-  box-shadow: 0 18px 45px 0 rgba(0, 0, 0, 0.13);
+  box-shadow: 0 18px 45px 0 rgba(0, 0, 0, 0.12);
   border-radius: 4px;
   width: 48%;
   margin-bottom: 24px;
@@ -109,7 +109,7 @@ export default Vue.extend({
     width: 100%;
   }
   &:hover {
-    box-shadow: 0 18px 45px 0 rgba(0, 0, 0, 0.31);
+    box-shadow: 0 18px 45px 0 rgba(0, 0, 0, 0.24);
   }
   &__img {
     width: 100%;
