@@ -25,10 +25,13 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/typescript
     '@nuxt/typescript-build',
-    '@nuxtjs/svg',
+    '@aceforth/nuxt-optimized-images',
   ],
 
   // dotenv: {},
+  optimizedImages: {
+    optimizeImages: true,
+  },
 
   // Modules (https://go.nuxtjs.dev/config-modules)
   modules: [],

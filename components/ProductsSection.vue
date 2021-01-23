@@ -13,7 +13,11 @@
           rel="noopener noreferrer"
           class="product-card"
         >
-          <img :src="product.imgSrc" class="product-card__img" alt="" />
+          <img
+            :src="require(`~/assets/images/${product.img}`)"
+            class="product-card__img"
+            alt=""
+          />
           <div class="product-card__description">
             <dl class="product-card__dl">
               <dt class="product-card__dt">名前：</dt>
@@ -38,7 +42,7 @@
 import Vue from 'vue'
 
 type ProductList = {
-  imgSrc: string
+  img: string
   name: string
   description: string
   tech: string
@@ -50,7 +54,7 @@ export default Vue.extend({
     return {
       productList: [
         {
-          imgSrc: require('@/assets/images/musil.png'),
+          img: 'musil.png',
           name: 'MusiL',
           description:
             'DTMや作曲をしている人が気軽に記事を投稿できるサービスです。もっとDTMを楽しめる人が増えたら良いなという考えで作成しました。',
@@ -59,14 +63,14 @@ export default Vue.extend({
           URL: 'https://musil.place/',
         },
         {
-          imgSrc: require('@/assets/images/portfolio.png'),
+          img: 'portfolio.png',
           name: 'komura-c.github.io',
           description: 'このサイトです。Nuxt.jsを使ってみるために作りました。',
           tech: 'Nuxt.js, Netlify',
           URL: 'https://github.com/komura-c/komura-c.github.io',
         },
         {
-          imgSrc: require('@/assets/images/music-waves.jpg'),
+          img: 'music-waves.jpg',
           name: 'MusicWavesVisualizer',
           description:
             'WebAudioAPIを使って画像と音楽を読み込んで波形動画を生成するサイトです。音楽動画が簡単に作れたら便利という考えで作成しました。',
@@ -74,7 +78,7 @@ export default Vue.extend({
           URL: 'https://music-waves-visualizer.vercel.app/',
         },
         {
-          imgSrc: require('@/assets/images/arskw.png'),
+          img: 'arskw.png',
           name: 'arskw',
           description:
             'Amazonレビューをスクレイピングしてワードクラウドに可視化するPythonプログラムです。',
