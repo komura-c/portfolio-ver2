@@ -37,7 +37,9 @@
             target="_blank"
             rel="noopener noreferrer"
             class="social-buttons__link"
-            ><img :src="socialButton.imgSrc" :alt="socialButton.name"
+            ><img
+              :src="require(`~/assets/images/${socialButton.img}`)"
+              :alt="socialButton.name"
           /></a>
         </div>
       </div>
@@ -51,7 +53,7 @@ import Vue from 'vue'
 type SocialButtons = {
   name: string
   URL: string
-  imgSrc: string
+  img: string
 }[]
 
 export default Vue.extend({
@@ -61,32 +63,32 @@ export default Vue.extend({
         {
           name: 'twitter',
           URL: 'https://twitter.com/komura_c',
-          imgSrc: require('@/assets/images/twitter-icon.svg'),
+          img: 'twitter-icon.svg',
         },
         {
           name: 'github',
           URL: 'https://github.com/komura-c',
-          imgSrc: require('@/assets/images/github-icon.svg'),
+          img: 'github-icon.svg',
         },
         {
           name: 'qiita',
           URL: 'https://qiita.com/komura_c',
-          imgSrc: require('@/assets/images/qiita-icon.png'),
+          img: 'qiita-icon.png',
         },
         {
           name: 'note',
           URL: 'https://note.com/komura_c',
-          imgSrc: require('@/assets/images/note-icon.svg'),
+          img: 'note-icon.svg',
         },
         {
           name: 'resume',
           URL: 'https://www.resume.id/komura_c',
-          imgSrc: require('@/assets/images/resume-icon.png'),
+          img: 'resume-icon.png',
         },
         {
           name: 'soundcloud',
           URL: 'https://soundcloud.com/komura_c',
-          imgSrc: require('@/assets/images/soundcloud-icon.png'),
+          img: 'soundcloud-icon.png',
         },
       ],
     }
