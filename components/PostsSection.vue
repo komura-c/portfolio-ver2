@@ -13,7 +13,7 @@
           rel="noopener noreferrer"
           class="post-card"
         >
-          <h4 class="post-card__title">{{ post.title }}</h4>
+          <h3 class="post-card__title">{{ post.title }}</h3>
           <p class="post-card__date">{{ post.updatedAt }}</p>
         </a>
       </div>

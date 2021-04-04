@@ -7,6 +7,7 @@
       <div class="musics">
         <div v-for="music in musicList" :key="music.title" class="music-card">
           <iframe
+            :title="music.title"
             width="100%"
             height="200"
             scrolling="no"

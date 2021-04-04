@@ -5,6 +5,9 @@
 <script>
 export default {
   head: {
+    htmlAttrs: {
+      lang: 'ja',
+    },
     title: 'komura-c.net',
     meta: [
       { charset: 'utf-8' },
