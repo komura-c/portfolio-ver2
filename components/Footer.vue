@@ -1,6 +1,6 @@
 <template>
   <footer class="footer">
-    <p class="footer__copyright">&copy; komura</p>
+    <p class="footer__copyright">&copy; komura-c</p>
   </footer>
 </template>
 
@@ -12,6 +12,7 @@
   text-align: center;
   &__copyright {
     margin: 0;
+    font-weight: bold;
   }
 }
 </style>

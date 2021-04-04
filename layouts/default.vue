@@ -8,7 +8,7 @@ export default {
     htmlAttrs: {
       lang: 'ja',
     },
-    title: 'komura-c.net',
+    title: 'komura-c.github.io',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },

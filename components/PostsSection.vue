@@ -105,6 +105,7 @@ export default Vue.extend({
   }
   &__title {
     font-weight: bold;
+    font-size: 16px;
     letter-spacing: 1.2px;
     margin-bottom: 12px;
   }
