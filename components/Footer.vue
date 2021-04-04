@@ -1,6 +1,6 @@
 <template>
   <footer class="footer">
-    <h3 class="footer__copyright">&copy; komura</h3>
+    <p class="footer__copyright">&copy; komura</p>
   </footer>
 </template>
 
