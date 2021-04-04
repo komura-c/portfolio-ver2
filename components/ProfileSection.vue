@@ -10,7 +10,7 @@
         />
       </div>
       <div class="profile-card__info">
-        <h1 class="profile-card__name">komura (Yuki Ishii)</h1>
+        <h1 class="profile-card__name">komura-c (Yuki Ishii)</h1>
         <div class="profile-card__description">
           <p>
             Webと音楽が好きです。最近の興味はTypeScript。Angular,
