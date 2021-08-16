@@ -13,8 +13,7 @@
         <h1 class="profile-card__name">komura-c (Yuki Ishii)</h1>
         <div class="profile-card__description">
           <p>
-            Webと音楽が好きです。最近の興味はTypeScript。Angular,
-            Firebaseでの開発が得意。
+            Webと音が好きです。最近の興味はTypeScriptです。ご用件は
             <a
               href="https://twitter.com/messages/compose?recipient_id=841935463174807558"
               target="_blank"
