@@ -27,10 +27,12 @@ export default Vue.extend({})
   &__text {
     font-size: 20px;
     letter-spacing: 1.2px;
+    z-index: 2;
   }
   &__anchor {
     position: relative;
     margin-top: 4px;
+    z-index: 2;
   }
   &__icon {
     position: absolute;

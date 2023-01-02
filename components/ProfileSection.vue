@@ -12,20 +12,23 @@
       <div class="profile-card__info">
         <h1 class="profile-card__name">komura-c (Yuki Ishii)</h1>
         <div class="profile-card__description">
+          <p>Work: Web Engineer</p>
+          <p>Interests: Web Frontend Dev / 音楽 / 音声</p>
           <p>
-            Webと音が好きです。最近の興味はTypeScriptです。ご用件は
+            Contacts:
             <a
-              href="https://twitter.com/messages/compose?recipient_id=841935463174807558"
+              href="https://twitter.com/komura_c"
               target="_blank"
               rel="noopener noreferrer"
-              >TwitterDM</a
-            >、
+              >Twitter</a
+            >
+            /
             <a
               href="mailto:komura_334@yahoo.co.jp"
               target="_blank"
               rel="noopener noreferrer"
               >メール</a
-            >よりお気軽にご連絡ください。
+            >
           </p>
         </div>
         <div class="social-buttons">
@@ -70,19 +73,14 @@ export default Vue.extend({
           img: 'github-icon.svg',
         },
         {
+          name: 'hatena',
+          URL: 'https://komura-c.hatenablog.com/',
+          img: 'hatena-icon.svg',
+        },
+        {
           name: 'qiita',
           URL: 'https://qiita.com/komura_c',
           img: 'qiita-icon.png',
-        },
-        {
-          name: 'note',
-          URL: 'https://note.com/komura_c',
-          img: 'note-icon.svg',
-        },
-        {
-          name: 'resume',
-          URL: 'https://www.resume.id/komura_c',
-          img: 'resume-icon.png',
         },
         {
           name: 'soundcloud',
@@ -108,7 +106,7 @@ export default Vue.extend({
     left: 0;
     right: 0;
     top: 80%;
-    height: 40%;
+    height: 50%;
     background-color: #f4f4f7;
     transform: skewY(-6deg);
     z-index: -1;
@@ -154,7 +152,7 @@ export default Vue.extend({
     margin-bottom: 16px;
   }
   &__description {
-    padding: 16px;
+    padding: 16px 24px;
     background-color: #339af0;
     color: #fff;
     border-radius: 10px;
