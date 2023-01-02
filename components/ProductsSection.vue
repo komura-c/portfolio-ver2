@@ -18,19 +18,16 @@
             class="product-card__img"
             alt=""
           />
-          <div class="product-card__description">
-            <dl class="product-card__dl">
-              <dt class="product-card__dt">名前：</dt>
-              <dd class="product-card__dd">{{ product.name }}</dd>
-              <dt class="product-card__dt">説明：</dt>
-              <dd class="product-card__dd">
-                {{ product.description }}
-              </dd>
-              <dt class="product-card__dt">技術：</dt>
-              <dd class="product-card__dd">
-                {{ product.tech }}
-              </dd>
-            </dl>
+          <h3 class="product-card__title">{{ product.name }}</h3>
+          <p class="product-card__description">{{ product.description }}</p>
+          <div class="product-card__tech-list">
+            <span
+              v-for="tech in product.tech"
+              :key="tech"
+              class="product-card__tech-item"
+            >
+              {{ tech }}
+            </span>
           </div>
         </a>
       </div>
@@ -45,7 +42,7 @@ type ProductList = {
   img: string
   name: string
   description: string
-  tech: string
+  tech: string[]
   URL: string
 }[]
 
@@ -56,34 +53,16 @@ export default Vue.extend({
         {
           img: 'musil.png',
           name: 'MusiL',
-          description:
-            'DTMや作曲をしている人が気軽に記事を投稿できるサービスです。もっとDTMを楽しめる人が増えたら良いなという考えで作成しました。',
-          tech:
-            'Angular.js, Firebase Cloud Functions + Hosting, Algolia, Froala Editor',
+          description: 'DTMや作曲をしている人が気軽に記事を投稿できるサービス',
+          tech: ['Angular', 'Firebase', 'Algolia', 'Quill Editor'],
           URL: 'https://musil.place/',
         },
         {
-          img: 'portfolio.png',
-          name: 'komura-c.github.io',
-          description: 'このサイトです。Nuxt.jsを使ってみるために作りました。',
-          tech: 'Nuxt.js, Netlify',
-          URL: 'https://github.com/komura-c/komura-c.github.io',
-        },
-        {
           img: 'music-waves.jpg',
-          name: 'MusicWavesVisualizer',
-          description:
-            'WebAudioAPIを使って画像と音楽を読み込んで波形動画を生成するサイトです。音楽動画が簡単に作れたら便利という考えで作成しました。',
-          tech: 'HTML5, CSS3, JavaScript, Materialize, Vercel',
+          name: 'Music Waves Visualizer',
+          description: '画像と音楽を読み込んで波形動画を生成するサイト',
+          tech: ['Web Audio API', 'ffmpeg.wasm', 'Next.js'],
           URL: 'https://music-waves-visualizer.vercel.app/',
-        },
-        {
-          img: 'arskw.png',
-          name: 'arskw',
-          description:
-            'Amazonレビューをスクレイピングしてワードクラウドに可視化するPythonプログラムです。',
-          tech: 'Python, Selenium, BeautifulSoup4, XlsxWriter, WordCloud, etc.',
-          URL: 'https://github.com/komura-c/arskw',
         },
       ],
     }
@@ -107,7 +86,10 @@ export default Vue.extend({
   box-shadow: 0 18px 45px 0 rgba(0, 0, 0, 0.12);
   border-radius: 4px;
   width: 48%;
-  margin-bottom: 24px;
+  max-width: 500px;
+  margin: 0 auto 24px;
+  padding: 16px;
+  line-height: 1.5;
   transition: 0.3s;
   @include tab {
     width: 100%;
@@ -120,21 +102,29 @@ export default Vue.extend({
     height: 200px;
     object-fit: cover;
     border-radius: 4px 4px 0 0;
+    margin-bottom: 8px;
+  }
+  &__title {
+    font-weight: bold;
+    font-size: 20px;
+    letter-spacing: 1.2px;
+    margin-bottom: 8px;
   }
   &__description {
-    padding: 16px;
-    line-height: 1.5;
+    font-size: 16px;
+    margin-bottom: 8px;
   }
-  &__dl {
-    max-width: 500px;
-    margin: 0 auto 12px;
+  &__tech-list {
+    display: flex;
   }
-  &__dt {
-    float: left;
-    clear: left;
+  &__tech-item + &__tech-item {
+    margin-left: 8px;
   }
-  &__dd {
-    margin-left: 70px;
+  &__tech-item {
+    font-size: 12px;
+    padding: 4px;
+    border: 1px solid #757575;
+    border-radius: 4px;
   }
   &__button {
     display: block;

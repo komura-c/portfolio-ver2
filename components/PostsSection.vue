@@ -36,31 +36,35 @@ export default Vue.extend({
     return {
       postList: [
         {
-          title: 'CloudFunctionsから上限までツイート保存',
-          URL: 'https://to.camp/lesson?v=S0FfNYhRPLzRt3GFHHaq',
-          updatedAt: '2020-09-29',
+          title: 'AngularのメタフレームワークAnalogを試す',
+          URL: 'https://zenn.dev/komura_c/articles/455b4a79c6d534',
+          updatedAt: '2022-12-12',
         },
         {
-          title: 'CloudFunctionsからYouTubeAPIで特定チャンネル動画を取得する',
-          URL: 'https://to.camp/lesson?v=wwWte5geeyIB0VHMuWx3',
-          updatedAt: '2020-09-29',
+          title: 'オーディオ波形動画を生成するWebぺージの作り方',
+          URL: 'https://tech-blog.voicy.jp/entry/2022/12/11/235929',
+          updatedAt: '2022-12-11',
         },
         {
-          title: 'AngularでFroalaEditorを使う',
-          URL: 'https://to.camp/lesson?v=thSHr2O8iIYt071VkVGO',
-          updatedAt: '2020-08-28',
-        },
-        {
-          title:
-            'Angularで動的に生成した記事の目次（TableOfContents）とスムーズスクロールを実装する',
-          URL: 'https://to.camp/lesson?v=Bi6M5sNoF2HGAFmJ3N1b',
-          updatedAt: '2020-08-19',
+          title: 'Angular 無限スクロール実装 3選',
+          URL: 'https://tech-blog.voicy.jp/entry/2022/11/24/103519',
+          updatedAt: '2022-11-24',
         },
         {
           title:
-            'WebAudioAPIとcanvasで音声波形動画を出力するサイトを作ってみた',
-          URL: 'https://crieit.net/posts/music-waves-visualizer',
-          updatedAt: '2020-08-16',
+            'AngularでWebWorkerを使ったバックグラウンドで生きるSetInterval',
+          URL: 'https://komura-c.hatenablog.com/entry/2022/08/01/103853',
+          updatedAt: '2022-08-01',
+        },
+        {
+          title: 'ffmpeg.wasmをブラウザ上で動かしてみた',
+          URL: 'https://tech-blog.voicy.jp/entry/2022/07/19/101954',
+          updatedAt: '2022-07-19',
+        },
+        {
+          title: 'Web Speech APIの音声認識を使ってWebページを作ってみる',
+          URL: 'https://tech-blog.voicy.jp/entry/2021/12/13/053054',
+          updatedAt: '2021-12-13',
         },
         {
           title: 'AngularでブラウザURLを扱う',

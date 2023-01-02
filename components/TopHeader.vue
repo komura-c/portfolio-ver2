@@ -58,7 +58,7 @@ export default Vue.extend({
 .header {
   position: sticky;
   top: 0;
-  z-index: 1;
+  z-index: 3;
 }
 
 .nav-bar {
